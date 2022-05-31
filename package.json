@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "name": "kahoot-api",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000r\u0000e\u0000a\u0000c\u0000t\u0000j\u0000s\u0000-\u0000K\u0000a\u0000h\u0000o\u0000o\u0000t\u0000-\u0000a\u0000p\u0000i\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khoaraoh/reactjs-Kahoot-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khoaraoh/reactjs-Kahoot-api/issues"
+  },
+  "homepage": "https://github.com/Khoaraoh/reactjs-Kahoot-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0"
+  }
+}
