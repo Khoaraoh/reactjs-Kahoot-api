@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-function dbConnect()
+export const dbConnect = () => 
 {
     return new Promise((resolve, reject) => {
         const url = process.env.MONGODB_URL;
@@ -16,4 +16,4 @@ function dbConnect()
       });
 }
 
-export default dbConnect;
+export const checkConnect = () => mongoose.connections.readyState;
