@@ -1,4 +1,6 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
+
+const { Schema } = mongoose;
 
 const modelName = "quiz";
 const quizSchema = new Schema({
@@ -8,16 +10,16 @@ const quizSchema = new Schema({
             question: String,
             answers: [
                 {
-                    answer: String
-                }
+                    answer: String,
+                },
             ],
             correctAnswer: String,
             image: String,
-        }
+        },
     ],
     name: String,
     userId: String,
     image: String,
 });
 
-export const quizModel = mongoose.model(modelName, quizSchema)
+export const quizModel = mongoose.model(modelName, quizSchema);
