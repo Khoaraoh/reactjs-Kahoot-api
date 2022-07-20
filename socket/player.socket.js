@@ -38,7 +38,7 @@ const playerHandle = (io, socket) => {
     const sendAllPlayersInfoInRoom = (room) => {
         const game = gameManager.getGame(room);
         if (game) {
-            const playersInRoom = game.getPlayersInGame();
+            const playersInRoom = game.getAllPlayersInGame();
             io.to(game.host).emit("receive__players", playersInRoom);
         }
     };

@@ -14,7 +14,7 @@ const quizSchema = new Schema({
                 },
             ],
             correctAnswer: String,
-            image: String,
+            imgPath: String,
         },
     ],
     name: String,

@@ -52,7 +52,7 @@ const hostHandle = (io, socket) => {
         const result = await quizModel.addQuiz(data);
 
         if (result)
-            io.to(socket.id).emit("createGameResult", { message: "success" });
+            io.to(socket.id).emit("createGameResult", { message: "success", result });
         else io.to(socket.id).emit("createGameResult", { message: "error" });
     };
 
@@ -211,10 +211,11 @@ const hostHandle = (io, socket) => {
         }
     };
 
-    socket.on("hostGame", hostGame);
-    socket.on("createGame", createGame);
+
+    socket.on("hostGame", hostGame); //done
+    socket.on("createGame", createGame); //done
     socket.on("deleteQuiz", deleteQuiz);
-    socket.on("fetchQuizList", fetchUserQuizList);
+    socket.on("fetchQuizList", fetchUserQuizList); //done
     socket.on("fetchPlayersInRoom", sendAllPlayersInfoInRoom);
     socket.on("startGame", startGame);
     socket.on("getQuestion", getQuestion);
