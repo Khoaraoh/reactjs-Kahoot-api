@@ -19,7 +19,7 @@ const hostHandle = (io, socket) => {
         if (quiz) {
             io.to(socket.id).emit("getQuizResult", {
                 msg: "get quiz successfully",
-                data: quiz.data,
+                data: quiz,
             });
         } else {
             io.to(socket.id).emit("getQuizResult", {
@@ -183,10 +183,11 @@ const hostHandle = (io, socket) => {
     };
 
     const getSummaryRankList = (loadingTime) => {
+      console.log('chay vo dc roi ne');
         const game = gameManager.getGameWithHost(socket.id);
 
         if (game) {
-            const rankList = game.getPlayersInGame();
+            const rankList = game.getAllPlayersInGame();
             const gameName = game.getQuizName();
             io.to(socket.id).emit("getSummaryRankListRes", {
                 rankList,
@@ -216,15 +217,15 @@ const hostHandle = (io, socket) => {
     socket.on("createGame", createGame); //done
     socket.on("deleteQuiz", deleteQuiz);
     socket.on("fetchQuizList", fetchUserQuizList); //done
-    socket.on("fetchPlayersInRoom", sendAllPlayersInfoInRoom);
-    socket.on("startGame", startGame);
-    socket.on("getQuestion", getQuestion);
+    socket.on("fetchPlayersInRoom", sendAllPlayersInfoInRoom); //done
+    socket.on("startGame", startGame); //done
+    socket.on("getQuestion", getQuestion); //done
     socket.on("stopQuestion", stopQuestion);
     socket.on("nextQuestion", nextQuestion);
     socket.on("getRankList", getRankList);
-    socket.on("getSummaryRankList", getSummaryRankList);
+    socket.on("getSummaryRankList", getSummaryRankList); //done
     socket.on("disconnect", hostDisconnect);
-    socket.on("getQuiz", getQuiz);
+    socket.on("getQuiz", getQuiz); //done --> handle by redux
     socket.on("updateQuiz", updateQuiz);
 };
 

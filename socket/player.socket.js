@@ -1,6 +1,7 @@
 import gameManager from "../utils/classHelpers/GameManager.js";
 
 const playerHandle = (io, socket) => {
+  console.log('socket join id', socket.id)
     const joinRoom = async (payload) => {
         const room = payload.room;
 
@@ -43,7 +44,8 @@ const playerHandle = (io, socket) => {
         }
     };
 
-    const answer = (playerId, questionId, answerContent, index) => {
+    const answer = (params) => {
+      const {playerId, questionId, answerContent, index} = params;
         const game = gameManager.getGameWithPlayer(playerId);
         if (game) {
             const newList = game.updatePlayerAnswer(
@@ -67,6 +69,8 @@ const playerHandle = (io, socket) => {
                 console.log("All player answered the question");
                 io.to(game.room).emit("questionTimeOut");
             }
+        }else{
+          console.log('loi roi')
         }
     };
 
@@ -78,8 +82,8 @@ const playerHandle = (io, socket) => {
         }
     };
 
-    socket.on("joinRoom", joinRoom);
-    socket.on("playerAnswer", answer);
+    socket.on("joinRoom", joinRoom); //done
+    socket.on("playerAnswer", answer); //done
     socket.on("disconnect", playerDisconnect);
 };
 

@@ -48,8 +48,8 @@ class Game {
     }
 
     hasPlayer(playerId) {
-        return this.listPlayers.find(player=>player.id === playerId)
-    }
+      return this.listPlayers.find(player=>player.id === playerId);
+    } 
 
     getHost() {
         return this.host;

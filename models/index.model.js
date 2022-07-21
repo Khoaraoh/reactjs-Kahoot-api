@@ -1,4 +1,5 @@
 import { quizModel } from "./schema/quiz.schema.js";
+import { userModel } from "./schema/user.schema.js";
 
 export default {
     getGame: async (id) => {
@@ -48,4 +49,14 @@ export default {
             data: result,
         };
     },
+
+    // User authentication
+    getUserByEmail: async (email) => {
+      const result = await userModel.findOne({email: email});
+      return result;
+    },
+    addUser: async (data) => {
+      const result = await userModel.create(data);
+      return result;
+    }
 };
